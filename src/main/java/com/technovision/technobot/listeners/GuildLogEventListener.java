@@ -25,7 +25,14 @@ public class GuildLogEventListener extends ListenerAdapter {
     public static final int RED = 0xdd5f53;
     public static final int GREEN = 0x53ddac;
 
-    private final WebhookClient webhook = new WebhookClientBuilder(TechnoBot.getInstance().getBotConfig().getJson().getString("guildlogs-webhook")).build();
+    private final WebhookClient webhook;
+    
+    private final TechnoBot bot;
+    
+    public GuildLogEventListener(final TechnoBot bot) {
+        this.bot = bot;
+        webhook = new WebhookClientBuilder(bot.getBotConfig().getJson().getString("guildlogs-webhook")).build();
+    }
 
     @Override
     public void onRoleCreate(@Nonnull RoleCreateEvent event) {
@@ -58,6 +65,7 @@ public class GuildLogEventListener extends ListenerAdapter {
 
     @Override
     public void onTextChannelDelete(@Nonnull TextChannelDeleteEvent event) {
+        if (event.getChannel().getParent().getIdLong() == 789008117970108437L) { return; }
         webhook.send(new WebhookEmbedBuilder() {{
             setTitle(new WebhookEmbed.EmbedTitle("Text Channel Deleted", null));
             setColor(RED);
@@ -70,6 +78,7 @@ public class GuildLogEventListener extends ListenerAdapter {
 
     @Override
     public void onTextChannelCreate(@Nonnull TextChannelCreateEvent event) {
+        if (event.getChannel().getParent().getIdLong() == 789008117970108437L) { return; }
         webhook.send(new WebhookEmbedBuilder() {{
             setTitle(new WebhookEmbed.EmbedTitle("Text Channel Created", null));
             setColor(GREEN);
