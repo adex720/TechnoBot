@@ -60,7 +60,14 @@ public class AutoPastebinManager extends ListenerAdapter {
                     gist = gistService.createGist(gist);
 
                 } catch (InterruptedException | ExecutionException | IOException e) {
-                    e.printStackTrace();
+                    MessageEmbed embed = new EmbedBuilder()
+                            .setTitle("Send in GH Gist!")
+                            .addField("FAILURE", "This automatic action of gist creation has failed. Please copy-paste your file into https://gist.github.com/ or https://pastebin.com/", false)
+                            .addField("WARNING", "Please refrain from sending files in the future, and use Pastebin or GH Gists instead.", false)
+                            .build();
+
+                    event.getChannel().sendMessage(embed).queue();
+                    return;
                 }
 
                 MessageEmbed embed = new EmbedBuilder()
