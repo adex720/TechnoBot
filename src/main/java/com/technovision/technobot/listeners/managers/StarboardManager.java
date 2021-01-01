@@ -42,7 +42,7 @@ public class StarboardManager extends ListenerAdapter {
         Message msg = event.getMessage();
         if (event.getChannel().getIdLong() == SHOWCASE) {
             if (!msg.getAttachments().isEmpty()) {
-                if (msg.getAttachments().get(0).isImage()) {
+                if (msg.getAttachments().get(0).isImage() || msg.getAttachments().get(0).isVideo()) {
                     String msgID = String.valueOf(msg.getIdLong());
                     posts.put(msgID, new JSONObject());
                     posts.getJSONObject(msgID).put("stars", 0);
