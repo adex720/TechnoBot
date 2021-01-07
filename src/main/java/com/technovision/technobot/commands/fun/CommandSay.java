@@ -88,8 +88,9 @@ public class CommandSay extends Command {
         }
 
         return new EmbedBuilder()
-                .addField("Message", msg.toString(), false)
-                .setAuthor(author.getName() + "#" + author.getDiscriminator())
+                .setAuthor(author.getAsTag(), null, author.getEffectiveAvatarUrl())
+                .setDescription(msg.toString())
+                .setColor(EMBED_COLOR)
                 .build();
     }
 }
