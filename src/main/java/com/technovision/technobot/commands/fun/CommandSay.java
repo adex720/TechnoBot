@@ -86,11 +86,10 @@ public class CommandSay extends Command {
         if (!isSafe(msg.toString())) {
             return null;
         }
-        msg.append("\n\n- <@!").append(author.getIdLong()).append(">");
 
         return new EmbedBuilder()
                 .addField("Message", msg.toString(), false)
-                .setAuthor(author.getName())
+                .setAuthor(author.getName() + "#" + author.getDiscriminator())
                 .build();
     }
 }
