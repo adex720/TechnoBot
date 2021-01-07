@@ -59,6 +59,7 @@ public class CommandSay extends Command {
     private boolean isSafe(String msg) {
         msg = msg.toLowerCase();
         if (msg.contains("discord.gg/")) { return false; }
+        if (msg.contains("@everyone") || msg.contains("@here")) { return false; }
         return !msg.contains("<@" + 595024631438508070L + ">");
     }
 
