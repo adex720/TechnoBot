@@ -31,11 +31,13 @@ public class CommandSay extends Command {
                     }
 
                     // Send message to specified channel
-                    long channelID = Long.parseLong(args[0].substring(2, args[0].length()-1));
+                    long channelID = Long.parseLong(args[0].substring(2, args[0].length() - 1));
                     TextChannel channel = event.getMessage().getMentionedChannels().get(0);
                     if (channel.getIdLong() == channelID) {
-                        String message = buildMessage(1, event.getAuthor(), args);
-                        if (message == null) { return true; }
+                        MessageEmbed message = buildMessage(1, event.getAuthor(), args);
+                        if (message == null) {
+                            return true;
+                        }
                         if (channel.canTalk(event.getMember())) {
                             channel.sendMessage(message).queue();
                         }
@@ -45,8 +47,10 @@ public class CommandSay extends Command {
             }
 
             // Send in current channel
-            String message = buildMessage(0, event.getAuthor(), args);
-            if (message == null) { return true; }
+            MessageEmbed message = buildMessage(0, event.getAuthor(), args);
+            if (message == null) {
+                return true;
+            }
             event.getChannel().sendMessage(message).queue();
             return true;
         }
@@ -58,8 +62,12 @@ public class CommandSay extends Command {
 
     private boolean isSafe(String msg) {
         msg = msg.toLowerCase();
-        if (msg.contains("discord.gg/")) { return false; }
-        if (msg.contains("@everyone") || msg.contains("@here")) { return false; }
+        if (msg.contains("discord.gg/")) {
+            return false;
+        }
+        if (msg.contains("@everyone") || msg.contains("@here")) {
+            return false;
+        }
         return !msg.contains("<@" + 595024631438508070L + ">");
     }
 
@@ -70,13 +78,18 @@ public class CommandSay extends Command {
                 .build();
     }
 
-    private String buildMessage(int startIndex, User author, String[] args) {
+    private MessageEmbed buildMessage(int startIndex, User author, String[] args) {
         StringBuilder msg = new StringBuilder();
         for (int i = startIndex; i < args.length; i++) {
             msg.append(args[i]).append(" ");
         }
-        if (!isSafe(msg.toString())) { return null; }
-        msg.append("\n\n- <@!").append(author.getIdLong()).append(">");
-        return msg.toString();
+        if (!isSafe(msg.toString())) {
+            return null;
+        }
+
+        return new EmbedBuilder()
+                .addField("Message", msg.toString(), false)
+                .setAuthor(author.getName() + "#" + author.getDiscriminator())
+                .build();
     }
 }
