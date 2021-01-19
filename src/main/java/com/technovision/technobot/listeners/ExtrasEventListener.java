@@ -1,10 +1,7 @@
 package com.technovision.technobot.listeners;
 
-import com.technovision.technobot.commands.Command;
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceJoinEvent;
 import net.dv8tion.jda.api.events.guild.voice.GuildVoiceLeaveEvent;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -14,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ExtrasEventListener extends ListenerAdapter {
@@ -91,14 +87,6 @@ public class ExtrasEventListener extends ListenerAdapter {
             event.getMessage().addReaction("😠").queue();
             triggered = true;
 
-        } else if (msg.toLowerCase().contains("forge") && (msg.toLowerCase().contains("tutorials") || msg.toLowerCase().contains("support") || msg.toLowerCase().contains("help"))) {
-            MessageEmbed embed = new EmbedBuilder()
-                    .setColor(Command.EMBED_COLOR)
-                    .setTitle("Forge is Not Supported Here!")
-                    .setDescription("The Forge tutorials have been discontinued, and thus no support for Forge will be given. We recommend switching to Fabric as an alternative or joining the official Forge discord for support. Click [HERE](https://discord.com/channels/599343917732986900/739158890104750160/791902360267522068) for more info!")
-                    .addField("Official Forge Discord", "https://discord.gg/UvedJ9m", false)
-                    .build();
-            event.getChannel().sendMessage(embed).queue();
         }
 
         if (triggered) COOLDOWN_MAP.put(authorId, System.currentTimeMillis());

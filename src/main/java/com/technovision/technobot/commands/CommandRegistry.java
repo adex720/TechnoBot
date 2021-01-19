@@ -78,6 +78,7 @@ public class CommandRegistry {
                 new CommandReport(bot),
                 new CommandLearnJava(bot),
                 new CommandLearnFabric(bot),
+                new CommandLearnForge(bot),
 
                 // Tickets
                 new CommandTicketMessage(bot),
