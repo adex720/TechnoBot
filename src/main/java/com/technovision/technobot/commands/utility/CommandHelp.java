@@ -1,4 +1,4 @@
-package com.technovision.technobot.commands.other;
+package com.technovision.technobot.commands.utility;
 
 import com.google.common.collect.Sets;
 import com.technovision.technobot.TechnoBot;
@@ -12,7 +12,7 @@ import java.util.*;
 public class CommandHelp extends Command {
     
     public CommandHelp(final TechnoBot bot) {
-        super(bot,"help", "Displays a list of available commands","{prefix}help [category|command]", Command.Category.OTHER);
+        super(bot,"help", "Displays a list of available commands","{prefix}help [category|command]", Command.Category.UTILITY);
     }
 
     @Override

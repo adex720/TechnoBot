@@ -1,4 +1,4 @@
-package com.technovision.technobot.commands.other;
+package com.technovision.technobot.commands.utility;
 
 import com.technovision.technobot.TechnoBot;
 import com.technovision.technobot.commands.Command;
@@ -9,7 +9,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 public class CommandSuggest extends Command {
 
     public CommandSuggest(final TechnoBot bot) {
-        super(bot,"suggest", "Suggest a feature or idea related to the server", "{prefix}suggest [content]", Command.Category.OTHER);
+        super(bot,"suggest", "Suggest a feature or idea related to the server", "{prefix}suggest [content]", Command.Category.UTILITY);
     }
 
     @Override

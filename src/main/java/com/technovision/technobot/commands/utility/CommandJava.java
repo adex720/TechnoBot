@@ -1,25 +1,26 @@
-package com.technovision.technobot.commands.other;
+package com.technovision.technobot.commands.utility;
 
+import com.google.common.collect.Sets;
 import com.technovision.technobot.TechnoBot;
 import com.technovision.technobot.commands.Command;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Date;
+import java.util.Set;
 
-public class CommandLearnJava extends Command {
+public class CommandJava extends Command {
 
-    public CommandLearnJava(final TechnoBot bot) {
-        super(bot,"learnjava", "Important links and info for learning java.", "{prefix}learnjava", Command.Category.OTHER);
+    public CommandJava(final TechnoBot bot) {
+        super(bot,"java", "Displays resources for learning Java programming.", "{prefix}java", Command.Category.UTILITY);
     }
 
     @Override
     public boolean execute(MessageReceivedEvent event, String[] args) {
         event.getChannel().sendMessage(new EmbedBuilder()
-                .setTitle("Learn Java!")
-                .setDescription("Before programming mods or plugins for Minecraft, we highly recommend learning Java programming! " +
-                                "These APIs are meant for advanced programmers and you will quickly get lost without strong coding knowledge." +
-                                "\n\nBelow are some helpful links to help you get started!")
+                .setTitle("Learn Java Programming!")
+                .setDescription("Below are some important links to help you get started learning Java programming.")
                 .addField("Official Documentation", "https://docs.oracle.com/javase/tutorial/", false)
                 .addField("Java Basics & Interactive Environment", "https://www.codecademy.com/learn/learn-java", false)
                 .addField("Full Online Java Course", "https://java-programming.mooc.fi/", false)
@@ -31,4 +32,8 @@ public class CommandLearnJava extends Command {
         return true;
     }
 
+    @Override
+    public @NotNull Set<String> getAliases() {
+        return Sets.newHashSet("learnjava");
+    }
 }

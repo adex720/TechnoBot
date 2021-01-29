@@ -1,4 +1,4 @@
-package com.technovision.technobot.commands.other;
+package com.technovision.technobot.commands.utility;
 
 import com.google.api.client.util.ArrayMap;
 import com.technovision.technobot.TechnoBot;
@@ -20,7 +20,7 @@ public class CommandReport extends Command {
     private static final Map<Member, Long> coolDown = new ArrayMap<>();
 
     public CommandReport(final TechnoBot bot) {
-        super(bot, "report", "Report a user to a staff", "{prefix}report", Command.Category.OTHER);
+        super(bot, "report", "Report a user to a staff", "{prefix}report", Command.Category.UTILITY);
     }
 
     @Override

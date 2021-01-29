@@ -8,7 +8,7 @@ import com.technovision.technobot.commands.levels.CommandLeaderboard;
 import com.technovision.technobot.commands.levels.CommandRank;
 import com.technovision.technobot.commands.levels.CommandRankcard;
 import com.technovision.technobot.commands.music.*;
-import com.technovision.technobot.commands.other.*;
+import com.technovision.technobot.commands.utility.*;
 import com.technovision.technobot.commands.staff.*;
 import com.technovision.technobot.commands.tickets.CommandTicketMessage;
 import com.technovision.technobot.commands.tickets.CommandTicketSettings;
@@ -69,16 +69,25 @@ public class CommandRegistry {
                 new CommandClear(bot),
                 new CommandUnmute(bot),
 
-                // Other
+                // Utility
                 new CommandHelp(bot),
                 new CommandSuggest(bot),
                 new CommandYoutube(bot),
                 new CommandPing(bot),
                 new CommandGoogle(bot),
                 new CommandReport(bot),
-                new CommandLearnJava(bot),
-                new CommandLearnFabric(bot),
-                new CommandLearnForge(bot),
+                new CommandJava(bot),
+                new CommandFabric(bot),
+                new CommandForge(bot),
+                new CommandSpigot(bot),
+                new CommandPython(bot),
+                new CommandJava(bot),
+                new CommandJavascript(bot),
+                new CommandKotlin(bot),
+                new CommandCPP(bot),
+                new CommandDiscordJS(bot),
+                new CommandDiscordPY(bot),
+                new CommandJDA(bot),
 
                 // Tickets
                 new CommandTicketMessage(bot),

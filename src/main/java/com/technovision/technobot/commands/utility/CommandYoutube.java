@@ -1,4 +1,4 @@
-package com.technovision.technobot.commands.other;
+package com.technovision.technobot.commands.utility;
 
 import com.google.common.collect.Sets;
 import com.technovision.technobot.TechnoBot;
@@ -12,7 +12,7 @@ public class CommandYoutube extends Command {
 
 
     public CommandYoutube(final TechnoBot bot) {
-        super(bot,"youtube", "Sends a link to TechnoVision's YouTube Channel", "{prefix}youtube", Command.Category.OTHER);
+        super(bot,"youtube", "Sends a link to TechnoVision's YouTube Channel", "{prefix}youtube", Command.Category.UTILITY);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.technovision.technobot.commands.other;
+package com.technovision.technobot.commands.utility;
 
 import com.technovision.technobot.TechnoBot;
 import com.technovision.technobot.commands.Command;
@@ -9,7 +9,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 public class CommandPing extends Command {
 
     public CommandPing(final TechnoBot bot) {
-        super(bot,"ping", "Pings the Discord API", "{prefix}ping", Command.Category.OTHER);
+        super(bot,"ping", "Pings the Discord API", "{prefix}ping", Command.Category.UTILITY);
     }
 
     @Override
